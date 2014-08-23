@@ -10,6 +10,7 @@ services:
     - postgresql
 
 before_script:
+    - psql -c "create database bridgebill;" -U postgres
     - python manage.py syncdb --migrate --noinput
 
 script: 
