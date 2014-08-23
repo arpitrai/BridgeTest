@@ -1,0 +1,37 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - My Transaction History with {{ person_name }}{% endblock %}
+{% block content %}
+<div id="content_one">
+    {% if bill_list %}
+    <p class="page_header">My Transaction History with {{ person_name }}</p>
+        <table class="base_table" id="transaction_history_table">
+            <thead>
+                <tr>
+                    <th class="name lender">Lender</th>
+                    <th class="name borrower">Borrower</th>
+                    <th class="date">Date</th>
+                    <th class="description">Description</th>
+                    <th class="amount">Amount</th>
+                    <th class="status">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for bill in bill_list %}
+                <tr>
+                    <td class="name lender"><a href="/bill/details/v/{{ bill.slug }}/">{{ bill.lender }}</a></td>
+                    <td class="name borrower"><a href="/bill/details/v/{{ bill.slug }}/">{{ bill.borrower }}</a></td>
+                    <td class="date"><a href="/bill/details/v/{{ bill.slug }}/">{{ bill.date|date:"jS M Y" }}</a></td>
+                    <td class="description"><a href="/bill/details/v/{{ bill.slug }}/">{{ bill.description }}</a></td>
+                    <td class="amount"><a href="/bill/details/v/{{ bill.slug }}/">{{ bill.currency|currency }} {{ bill.individual_amount|intcomma }}</a></td>
+                    <td class="status"><a href="/bill/details/v/{{ bill.slug }}/">{% if bill.status == "Y" %}<span class="green">Cleared{% else %}<span class="red">Pending{% endif %}</span></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="default_message">You don't have any transactions on BridgeBill.</p>                
+    {% endif %}
+</div>
+{% endblock %}

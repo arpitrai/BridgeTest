@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Settle Payment - Success{% endblock %}
+{% block content %}
+<div id="content_one">
+    {% if list_of_bills_cleared %}
+    <p class="page_header" >Success! Bills Settled with {{ person_name }}</p>
+        <table class="base_table" id="payment_success_table">
+            <thead>
+                <tr>
+                    <th class="date">Date</th>
+                    <th class="description">Description</th>
+                    <th class="amount">Amount</th>
+                    <th class="status">Status</th>
+                    <th class="cleared"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in list_of_bills_cleared %}
+                    <tr>
+                        <td class="date"><a href="/bill/details/v/{{ bill.overall_bill_id }}/">{{ bill.date|date:"jS M Y" }}</a></td>
+                        <td class="description"><a href="/bill/details/v/{{ bill.overall_bill_id }}/">{{ bill.description }}</a></td>
+                        <td class="amount"><a href="/bill/details/v/{{ bill.overall_bill_id }}/"><span class="{% if bill.status == "+ve" %}green{% else %}{% if bill.status == "-ve" %}red{% endif %}{% endif %}">{{ bill.currency|currency }} {{ bill.amount|intcomma }}</span></a></td>
+                            <td class="status"><a href="/bill/details/v/{{ bill.overall_bill_id }}/">{% if bill.status == "+ve" %}Owes Me{% else %}{% if bill.status == "-ve" %}I Owe{% endif %}{% endif %}</a></td>
+                            <td class="cleared"><a href="/bill/details/v/{{ bill.overall_bill_id }}/"><span class="blue">Bill Settled!</span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="default_message">You haven't cleared any bills recently with {{ person_name }}.</p>                
+    {% endif %}
+</div>
+{% endblock %}

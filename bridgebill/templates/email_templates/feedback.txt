@@ -1,0 +1,9 @@
+{% autoescape off %}Yo
+
+{{ name }} ({{ email }}) has left a message on BridgeBill.
+
+Message: {{ message }}.
+
+Cheers
+Arpit
+{% endautoescape %}

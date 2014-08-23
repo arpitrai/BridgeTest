@@ -1,0 +1,15 @@
+{% load currency_symbol_email %} {% load humanize %}{% autoescape off %}
+Hi there
+
+{{ userprofile_object.user.first_name }}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %} ({{ userprofile_object.user.email }}) has added a bill on BridgeBill. Please see below details of the bill. 
+
+URL: http://www.bridgebill.com/bill/details/v/{{ bill.overall_bill_id }}/
+Description: {{ bill.description }}
+Date: {{ bill.date|date:"jS M Y" }}
+Total Bill Amount: {{ bill.currency|currency_email }} {{ bill.amount|floatformat:2|intcomma }}
+Your Share of the Bill: {{ bill.currency|currency_email }} {{ bill_detail.individual_amount|floatformat:2|intcomma }} 
+Your Net Outstanding with {{ userprofile_object.user.first_name}}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %} (including previous uncleared bills): {% for key,value in net_outstanding.items %}{{ key|currency_email }} {{ value.0|floatformat:2|intcomma }} ({% if value.1 == '+ve' %}You Owe {{ userprofile_object.user.first_name }}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %}{% else %}{% if value.1 == '-ve' %}{{ userprofile_object.user.first_name }} {% if userprofile_object.user.last_name %}{{ userprofile_object.user.last_name }} {% endif %}Owes You{% else %}{% if value.1 == 'zero' %}Even Steven! Although there are pending bills, both of you owe each other the same amount overall{% endif %}{% endif %}{% endif %}){% if not forloop.last %}, {% endif %}{% endfor %}
+
+Cheers
+BridgeBill (http://www.bridgebill.com)
+{% endautoescape %}

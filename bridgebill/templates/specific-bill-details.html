@@ -1,0 +1,83 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Bill Details{% endblock %}
+{% block content %}
+<div id="content_one">
+    <p id="home_details_header">{{ page_header }}</p>
+    <form id="specific_bill_detail" name="specific_bill_detail" action="" method="post">
+        {% csrf_token %}
+        <ul class="specific_bill">
+            <li>
+                <label>Lender </label>
+                {% if not user_lender %}
+                    <span class="description">{{ bill.lender.user.first_name }} {{ bill.lender.user.last_name }}<span class="text_small">- <em>{{ bill.lender.user.email }}</em></span></span>
+                {% else %}
+                    <span class="description">Me<span class="text_small">- <em>{{ bill.lender.user.email }}</em></span></span>
+                {% endif %}
+            </li>
+            <li>
+                <label>Date </label>
+                <span class="description">{{ bill.date|date:"jS M Y" }}</span>
+            </li>
+            <li>
+                <label>Description </label>
+                <span class="description">{{ bill.description }}</span>
+            </li>
+            <li>
+                <label>Total Amount </label>
+                <span class="description">{{ bill.currency|currency }} {{ bill.amount|intcomma }}</span>
+            </li>
+            <li id="split_between">
+                <label>Split Between </label>
+                <ul>
+                    {% for borrower in borrowers %}
+                        {% if borrower.borrower.friend_email == userprofile_object.user.email %}
+                        <li><span>Me<span class="text_small">- <em>{{ borrower.borrower.friend_email }}</em></span> ({{ bill.currency|currency }} {{ borrower.individual_amount|intcomma }})</span></li>
+                        {% else %}
+                            <li><span>{{ borrower.borrower.friend_name}}<span class="text_small">- <em>{{ borrower.borrower.friend_email }}</em></span> ({{ bill.currency|currency }} {{ borrower.individual_amount|intcomma }})</span></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% if borrower_and_lender_one_only %}
+            <li>
+                <label>Note<span class="own_bill_note">*</span> </label>
+                <span class="description own_bill_description">Own bills with <strong>only you as the borrower</strong> are <strong>NOT</strong> tracked</span>
+            </li>
+            {% endif %}
+            {% if userprofile_object %}
+            <li class="last">
+                {% if user_lender %}
+                    {% if borrower_and_lender_one_only %}
+                        <button id="delete_bill_two" name="delete_bill" type="submit">Delete Bill</button>
+                    {% else %}
+                        {% if bill_paid_status == "None" %}
+                            <button id="mark_bill_paid_one" name="mark_bill_paid" type="submit">Mark Bill as Paid by All</button>
+                            <button id="delete_bill_one" name="delete_bill" type="submit">Delete Bill</button>
+                        {% else %}
+                            {% if bill_paid_status == "Some" %}
+                                <button id="mark_bill_paid_two" name="mark_bill_paid" type="submit">Mark Bill as Paid by All</button>
+                            {% else %}
+                                {% if bill_paid_status == "All" %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                <input type="hidden" name="lender_as_user_yes" value='Y' />
+                {% else %}
+                    {% if not as_borrower_paid_already %}
+                        <button id="mark_bill_paid_two" name="mark_bill_paid" type="submit">Mark My Share as Paid</button>
+                    {% endif %}
+                {% endif %}
+            </li>
+            {% endif %}
+        </ul>
+        {% if error.delete_error %}
+            <span class="error_generic">{{ error.delete_error }}</span>
+        {% endif %}
+        <input type="hidden" name="overall_bill_id" value={{ bill.overall_bill_id }} />
+        <input type="hidden" name="lender" value={{ bill.lender.user.email }} />
+    </form>
+</div>
+{% endblock %}

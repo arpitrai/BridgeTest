@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}BridgeBill - Split Bills with Friends. Keep Track of Who Owes What{% endblock %}</title>
+	<meta name="description" content="BridgeBill helps you record your shared expenses, split them with friends and keep track of who owes what." />
+    <!--<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" />-->
+    <link media="all" rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/reset.css" />
+    <link media="all" rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/all.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/library/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/library/jquery.validate.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/library/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/all.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/library/jquery-ui-1.9.1.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/library/jquery-ui-1.9.1.js"></script>
+
+    <script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+    <!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/library/chosen.css" />-->
+    <!--<script type="text/javascript" src="{{ STATIC_URL }}js/library/chosen.jquery.js"></script>-->
+
+    <!-- Start - Google Analytics Code -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36939681-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End - Google Analytics Code -->
+
+</head>
+<body>
+    {% block body %}
+    <div id="index">
+        <div id="index_header">
+            <h1><span><a href="/"><strong class="logo">BridgeBill</strong> - Split Bills and Keep Track of Who Owes What</a></span></h1>
+        <noscript>
+            <p id="js_disabled"><span class="red">Attention!</span> Looks like JavaScript is disabled on your browser. Please enable JavaScrkpt before you login to have the best user experience on BridgeBill!</p>
+        </noscript>
+        </div>
+        <div id="index_one">
+            <div id="index_description">
+                <ol>
+                    <li><span class="highlight_index">Record</span> your Shared Expenses</li>
+                    <li><span class="highlight_index">Split</span> them with Friends</li>
+                    <li><span class="highlight_index">Track</span> Who Owes Who / What</li>
+                </ol>
+            </div>
+
+            <div id="index_divider">
+            </div>
+
+            <div id="index_login">
+                <div id="index_facebook_login">
+                    <a href="{% url socialauth_begin 'facebook' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}"><img src="{{ STATIC_URL }}images/facebook_connect_logo.jpeg" alt="Login Using Facebook" /></a>
+                </div>
+                <div class="placeholder_a">
+                    <span>or</span>
+                </div>
+                <div id="index_login_form">
+                    <ul>
+                        <li>
+                            <form name="login" action="" method="post">
+                                {% csrf_token %}
+                                <ul>
+                                    {% if error %}
+                                    {% autoescape off %}
+                                    <li id="login_error">
+                                        {{ error }}
+                                    </li>
+                                    {% endautoescape %}
+                                    {% endif %}
+                                    <li>
+                                        <label class="index" for="id_username">Your Email </label>
+                                        {{ authentication_form.username }}
+                                    </li>
+                                    <li>
+                                        <label class="index" for="id_password">Password </label>
+                                        {{ authentication_form.password }}
+                                    </li>
+                                    <li class="last">
+                                        <button id="submit" type="submit">Login!</button>
+                                    </li>
+                                </ul>
+                                <input type="hidden" name="next" value="{{ next }}" />
+                            </form>
+                        </li>
+                        <li class="placeholder_b">
+                            <a href="/user/forgot-password/">Forgot your password?</a>
+                        </li>
+                        <li class="placeholder_b">
+                            <a href="/user/sign-up/">Don't have an account? Create account</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="index_push">
+        </div>
+    </div>
+    <div id="index_footer">
+        <ul class="footer_links"> 
+            <li><a href="/about-us/">About Us</a></li>
+            <li><a href="/feedback/">Feedback</a></li>
+            <!--<li><a href="/contact-us/">Contact Us</a></li>-->
+        </ul> 
+    </div>
+    {% endblock %}
+
+    <!--Start - For Crazy Egg -->
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0014/5944.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    <!--End - For Crazy Egg -->
+</body>
+</html>

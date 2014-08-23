@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Settle Payment{% endblock %}
+{% block content %}
+<div id="content_one">
+{% if payment_person_list|length > 1 %}
+    <p id="settle_payment_option">
+        <span>Settle Bills With
+            <select name="person" id="id_person">
+                {% for payment_person in payment_person_list %}
+                <option value="{{ payment_person.email }}">{% if payment_person.email != 'blank_element' %}{{ payment_person.name  }} - {{ payment_person.email }}{% endif %}</option>
+                {% endfor %}
+            </select>
+        </span>
+        <span class="ajax_loading"><img src="{{ STATIC_URL }}images/ajax-loader.gif" alt="Processing" /></span>
+    </p>
+{% else %}
+    <p class="default_message">Nothing to settle! You don't have any open transactions currently.</p> 
+{% endif %}
+</div>
+{% endblock %}

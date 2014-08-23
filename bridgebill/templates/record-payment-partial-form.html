@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% block title %}BridgeBill - Record Payment{% endblock %}
+{% block content %}
+<div id="content_one">
+{% if payment_person_list %}
+    <form name="record_payment_initial" id="record_payment_initial" action="" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="id_paid_to">Settle Payment With </label>
+                <select name="person" id="id_person">
+                    {% for payment_person in payment_person_list %}
+                        <option value="{{ payment_person.email }}">{{ payment_person.name  }}</option>
+                    {% endfor %}
+                </select>
+            </li>
+            <li class="last">
+                <button id="save" type="submit">Proceed</button>
+            </li>
+        </ul>
+    </form>
+{% else %}
+    <p class="default_message">You don't owe anyone any money currently!</p>                
+    <p class="default_message">You can record a payment only when you owe someone money.</p>                
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,2194 @@
+/* Start - Site Wide Declaration */
+body{
+	margin: 0;
+    padding: 0;
+	font:18px/25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*background: url(../images/subtlenet2.png) repeat center top #b8e1e5;*/
+    background: #FBFBFB;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+label.index {
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 5px;
+    width: 125px;
+}
+
+input, textarea {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    color: #333333;
+    font-size: 16px;
+    height: 20px;
+    padding: 5px 10px;
+    width: 394px;
+}
+
+input[type="checkbox"] {
+    width: 30px;
+    padding: 0;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #BBBBBB;
+}
+
+img {
+    vertical-align: middle;
+}
+
+div#content_one ul.base_ul_overview li span.ajax_loading {
+    margin-left: 5px;
+    display: none;
+}
+
+span.ajax_loading img {
+    height: 20px;
+    width: 20px;
+}
+
+span.error_django {
+    font-size: 14px;
+    color: #8B0000 !important;
+    background-color:#FEE0C6; 
+    padding: 5px 6px 4px;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+span.error {
+    display: none !important;
+}
+
+input.error {
+    border: 1px solid #c04355 !important;
+}
+
+input.error_2 {
+    border: 1px solid #c04355;
+}
+
+select.valid, form#unequal_split table#unequal_split_people_table select.valid {
+    border: 1px solid #DDDDDD !important;
+}
+
+select.error, form#unequal_split table#unequal_split_people_table select.error {
+    border: 1px solid #c04355 !important;
+}
+
+select.error_2, form#unequal_split table#unequal_split_people_table select.error_2 {
+    border: 1px solid #c04355;
+}
+
+input.valid {
+    border: 1px solid #DDDDDD !important;
+}
+
+input.valid_2 {
+    border: 1px solid #DDDDDD;
+}
+
+li.last button, span.last button, span.last_new button, p#record_bill_option button {
+    -webkit-transition: border 500ms;
+    -moz-transition: border 500ms;
+    -ms-transition: border 500ms;
+    -o-transition: border 500ms;
+    transition: border 500ms;
+    background-color: #F2F0F0;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fdfafb), color-stop(50%, #f9f7f7), color-stop(50%, #f6f3f4), color-stop(100%, #f0eded));
+    background-image: -webkit-linear-gradient(#fdfafb, #f9f7f7 50%, #f6f3f4 50%, #f0eded);
+    background-image: -moz-linear-gradient(#fdfafb, #f9f7f7 50%, #f6f3f4 50%, #f0eded);
+    background-image: -o-linear-gradient(#fdfafb, #f9f7f7 50%, #f6f3f4 50%, #f0eded);
+    background-image: -ms-linear-gradient(#fdfafb, #f9f7f7 50%, #f6f3f4 50%, #f0eded);
+    background-image: linear-gradient(#fdfafb, #f9f7f7 50%, #f6f3f4 50%, #f0eded);
+    border: 1px solid #D7D7D7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px 4px 4px 4px;
+    color: #4D4D4D;
+    cursor: pointer;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 37px;
+    line-height: 16px;
+    margin: 0 auto;
+    padding: 9px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;
+    width: 100%;
+}
+
+li.last button:hover, span.last button:hover, span.last_new button:hover, p#record_bill_option button:hover {
+    border: 1px solid #C3C3C3;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fdfcfc), color-stop(50%, #fbf9f9), color-stop(50%, #f7f5f6), color-stop(100%, #f2f0f0));
+    background-image: -webkit-linear-gradient(#fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background-image: -moz-linear-gradient(#fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background-image: -o-linear-gradient(#fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background-image: -ms-linear-gradient(#fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background-image: linear-gradient(#fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+}
+
+li.last button:active, span.last button:active, span.last_new button:active, p#record_bill_option button:active {
+    border: 1px solid #b7b7b7;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f4f5), color-stop(50%, #f3f0f0), color-stop(50%, #f1eeef), color-stop(100%, #ebe8e8));
+    background-image: -webkit-linear-gradient(#f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background-image: -moz-linear-gradient(#f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background-image: -o-linear-gradient(#f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background-image: -ms-linear-gradient(#f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background-image: linear-gradient(#f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    -webkit-box-shadow: rgba(34, 25, 25, 0.25) 0px 1px 2px inset, rgba(232, 230, 230, 0.5) 0px 0px 3px;
+    -moz-box-shadow: rgba(34, 25, 25, 0.25) 0px 1px 2px inset, rgba(232, 230, 230, 0.5) 0px 0px 3px;
+    box-shadow: rgba(34, 25, 25, 0.25) 0px 1px 2px inset, rgba(232, 230, 230, 0.5) 0px 0px 3px;
+}
+
+div#user_signup_form ul li label.error {
+    width: 25px;
+	background: url(../images/incorrect.gif) no-repeat 8px 8px;
+    color: #FFFFFF;
+}
+
+div#user_signup_form ul li label.valid {
+	background: url(../images/correct.gif) no-repeat 8px 8px;
+}
+
+form#my_profile label.error {
+    display: none;
+}
+
+p.default_message {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 30px;
+    color: #444444;
+}
+
+p.default_message a {
+    font-weight: 600;
+    color: #B1581E;
+    text-decoration: underline;
+}
+
+p.default_message a:hover {
+    color: #854517;
+}
+
+input.record_bill_date, input#id_date {
+    cursor: pointer;
+}
+
+select#id_currency {
+    font-size: 13px;
+    width: 180px;
+    height: 22px;
+    -webkit-appearance: menulist-button;
+    border: 1px solid #DDDDDD;
+}
+
+ul.specific_bill {
+    float: left;
+}
+
+span.error_generic {
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px !important;
+    font-size: 14px;
+    color: #8B0000;
+    background-color:#FEE0C6; 
+    padding: 5px 6px 4px;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+    border-bottom: 0 !important;
+}
+/* End - Site Wide Declaration */
+
+/* Start - Footer */
+
+/* Start - Commented part below ensures that footer sticks to the bottom of the page always */
+/*html, body {*/
+    /*height: 100%;*/
+/*}*/
+
+/*div#index, div#home {*/
+    /*min-height: 100%;*/
+    /*height: auto !important;*/
+    /*height: 100%;*/
+    /*margin: 0 auto -30px;*/
+/*}*/
+
+/*div#index_footer, div#index_push, div#home_footer, div#home_push {*/
+    /*clear: both;*/
+    /*margin: auto;*/
+    /*height: 30px;*/
+/*}*/
+/* End - Commented part below ensures that footer sticks to the bottom of the page always */
+div#index_footer, div#home_footer {
+    padding: 10px;
+    margin-top: 40px;
+    /*border-top: 1px solid #D4D4D4;*/
+    /*box-shadow: 0 0 4px rgba(0, 0, 0, 0.05) inset, 0 0 9px rgba(0, 0, 0, 0.1);*/
+}
+
+div#index_footer ul, div#home_footer ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+div#index_footer ul li, div#home_footer ul li {
+    display: inline-block;
+    margin: 0 30px 0 0;
+    width: 70px;
+}
+
+div#index_footer ul li:last-child, div#home_footer ul li:last-child {
+    margin-right: 0;
+}
+
+div#index_footer ul li a, div#home_footer ul li a {
+    font-size: 14px;
+    text-decoration: none;
+    /*color: rgba(0, 0, 0, 0.7);*/
+    color: #919191;
+    display: block;
+}
+
+div#index_footer ul li a:hover, div#home_footer ul li a:hover {
+    /*text-decoration: underline;*/
+    /*color: rgba(0, 0, 0, 1);*/
+    color: #515151;
+}
+
+div#index_footer ul li.currentLink a, div#home_footer ul li.currentLink a {
+    /*color: rgba(0, 0, 0, 1);*/
+    color: #515151;
+    font-weight: 500;
+    /*text-decoration: underline;*/
+}
+/* End - Footer */
+
+/* Start - Footer Content as in About Us and Feedback Pages */
+div#footer_content {
+    width: 68%;
+    margin: -40px auto 0 auto;
+    color: #333333;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -ms-border-top-right-radius: 10px;
+    -o-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -ms-border-top-left-radius: 10px;
+    -o-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.02), 0, 0, 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.02), 0, 0, 3px;
+    box-shadow: rgba(0, 0, 0, 0.02), 0, 0, 3px;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #fbfbfb));
+    background-image: -webkit-linear-gradient(#ffffff, #fbfbfb);
+    background-image: -moz-linear-gradient(#ffffff, #fbfbfb);
+    background-image: -o-linear-gradient(#ffffff, #fbfbfb);
+    background-image: -ms-linear-gradient(#ffffff, #fbfbfb);
+    background-image: linear-gradient(#ffffff, #fbfbfb);
+    border: 1px solid #eee;
+    border-right-color: #f4f4f4;
+    border-left-color: #f4f4f4;
+    border-bottom: none;
+    padding: 20px;
+}
+
+div#footer_content h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+}
+
+div#footer_content p, div#footer_content span.closing {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+div#footer_content span.closing.two {
+    position: relative;
+    bottom: 7px;
+}
+
+div#footer_content .last_para {
+    margin-bottom: 0;
+}
+
+div#footer_content p a {
+    color: #B15B1E;
+}
+
+div#footer_content p a:hover {
+    color: #854517;
+    text-decoration: underline;
+}
+
+div#footer_content div#feedback {
+    margin-left: 5px;
+    margin-top: 20px;
+    width: 700px;
+}
+
+div#footer_content div#feedback ul li {
+    margin-bottom: 5px;
+}
+
+div#footer_content div#feedback ul li#feedback_message {
+    margin-bottom: 20px;
+}
+
+div#footer_content div#feedback label {
+    width: 75px;
+    display: inline-block;
+    text-align: right;
+}
+
+div#footer_content div#feedback label, div#footer_content div#feedback input, div#footer_content div#feedback textarea {
+    vertical-align: top;
+}
+
+div#footer_content div#feedback input, div#footer_content div#feedback textarea {
+    width: 350px;
+}
+
+div#footer_content div#feedback textarea {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    height: 125px;
+    line-height: 20px;
+}
+
+div#footer_content div#feedback form#feedback_form ul li.last button#save {
+    margin-left: 0;
+    padding-left: 0;
+    width: 460px;
+}
+
+textarea.error {
+    border: 1px solid #c04355;
+}
+/* End - Footer Content as in About Us and Feedback Pages */
+
+/* Start - Index Page */
+div#index, div#home {
+    width: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+div#index_header {
+    width: 100%;
+    margin: 50px 0 100px 0;
+}
+
+strong.logo {
+    font-size: 36px;
+    /*color: #B15B1E*/
+}
+
+div#index_header h1 {
+    /*width: 910px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    text-align: center;
+    border-bottom: 1px solid transparent;
+}
+
+div#index_header h1 span:hover {
+    /*text-decoration: underline;*/
+    border-bottom: 1px solid black;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+div#index_header h1 a, div#home_header_1 h1 a {
+    color: #333333;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+p#js_disabled {
+    margin-top: 20px;
+    background: #FFFFFF;
+    text-align: center;
+    color: #333333;
+    font-size: 16px;
+    padding: 10px;
+}
+
+p#js_disabled span.red {
+    color: red;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+div#index_one {
+    width: 1100px;
+    margin: 0 auto;
+    /*overflow: auto;*/
+}
+
+div#index_description {
+    width: 550px;
+    float: left;
+    margin-top: 70px;
+}
+
+div#index_description ol {
+    list-style-type: decimal;
+    width: 380px;
+    margin-left: auto;
+    margin-right: 100px;
+    font-size: 27px;
+    font-weight: 400; 
+    color: #7A7A7A;
+}
+
+div#index_description ol li {
+    margin-bottom: 25px;
+}
+
+div#index_description ol li span.highlight_index {
+    color: #333333;
+    font-weight: 500;
+}
+
+div#index_divider {
+    float: left;
+    margin-top: -40px;
+    height: 410px;
+    border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+div#index_login {
+    width: 410px;
+    float: left;
+    margin-left: 100px;
+    /*margin-top: -30px;*/
+    background: -webkit-linear-gradient(top, #FFFFFF 10%, #F5F5F5 18%) repeat scroll 0 0 transparent;
+    background: -moz-linear-gradient(center top , #FFFFFF 10%, #F5F5F5 18%) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(top, #FFFFFF 10%, #F5F5F5 18%) repeat scroll 0 0 transparent;
+    background: -ms-linear-gradient(top, #FFFFFF 10%, #F5F5F5 18%) repeat scroll 0 0 transparent;
+    background: linear-gradient(top, #FFFFFF 10%, #F5F5F5 18%) repeat scroll 0 0 transparent;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+}
+
+div#index_facebook_login {
+    margin: 25px auto 0px auto;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 350px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+div.placeholder_a {
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -14px;
+    color: #76787D;
+    font-size: 13px;
+    font-weight: 300;
+    background: none repeat scroll 0 0 #F5F5F5;
+    text-align: center;
+}
+
+div#index_login_form {
+    width: 340px;
+    margin: 20px auto;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+div#index_login_form form ul li {
+    margin-bottom: 15px;
+}
+
+div#index_login_form ul li label {
+    width: 90px;
+    display: inline-block;
+}
+
+div#index_login_form ul li input {
+    /*width: 175px;*/
+    width: 215px;
+}
+
+div#index_login_form ul li button {
+}
+
+div#index_login_form ul li.placeholder_b {
+    text-align: center;
+}
+
+div#index_login_form ul li.placeholder_b a {
+    font-size: 14px;
+    color: #B15B1E;
+}
+
+div#index_login_form ul li.placeholder_b a:hover {
+    text-decoration: underline;
+    color: #854517;
+}
+
+li#login_error, li#signup_error {
+    background-color:#FEE0C6; 
+    font-size: 14px;
+    color: #8B0000;
+    padding: 5px 8px 4px;
+    text-align: center;
+    border-radius: 3px 3px 3px 3px;
+}
+/* End - Index Page */
+
+/* Start - User Signup Page */
+div#user_signup, div#forgot_password {
+    width: 550px;
+    margin: -50px auto 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+}
+
+div.sub_header {
+    border-radius: 5px 5px 0 0;
+    background: url(../images/header-bg.png) repeat scroll 0 0 transparent;
+    height: 72px;
+    width: 100%;
+    text-align: center;
+}
+
+span.title {
+    /*color: #066EAC;*/
+    color: #777777;
+    font-size: 24px;
+    line-height: 72px;
+}
+
+div#user_signup div.placeholder_a, div#forgot_password div.placeholder_a {
+    background: #FFFFFF;
+}
+
+div#user_signup_form, div.forgot_password_form {
+    margin: 20px auto;
+    width: 430px;
+}
+
+div#user_signup_form ul li, div.forgot_password_form ul li {
+    margin-bottom: 15px;
+}
+
+div#user_signup_form ul li#signup_error {
+    width: 380px;
+}
+
+div#user_signup_form ul li label, div.forgot_password_form ul li label {
+    display: inline-block;
+    width: 125px;
+}
+
+div#user_signup_form ul li input, div.forgot_password_form ul li input {
+    width: 240px;
+}
+
+div#user_signup_form ul li button, div.forgot_password_form ul li button {
+    margin-left: 0;
+    width: 400px;
+}
+
+div#user_signup_form span.small, div.forgot_password_form span.small, span.small {
+    font-size: 12px;
+    font-weight: 400;
+}
+/* End - User Signup Page */
+
+/* Start - Forgot Password Page */
+div.forgot_password_form {
+    width: 514px;
+}
+
+div.forgot_password_form ul li ul {
+    width: 430px;
+    margin: 30px auto;
+}
+
+div.forgot_password_form ul li button {
+    margin-left: 40px;
+    width: 357px;
+}
+
+li#forgot_password_error span {
+    display: inline-block;
+    margin-left: 40px;
+    width: 342px;
+    background-color:#FEE0C6; 
+    font-size: 14px;
+    color: #8B0000;
+    padding: 5px 8px 4px;
+    text-align: center;
+    border-radius: 3px 3px 3px 3px;
+}
+
+div#forgot_password_actual li#forgot_password_error span {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+div.forgot_password_form ul li span.message {
+    display: inline-block;
+    width: 514px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+div.forgot_password_form ul li span.message a {
+    font-weight: 400;
+    color: #B15B1E;
+}
+
+div.forgot_password_form ul li span.message a:hover {
+    text-decoration: underline;
+    color: #854517;
+}
+
+div#forgot_password_actual ul {
+    /*width: 430px;*/
+}
+
+div#forgot_password_actual ul li label {
+    width: 155px;
+}
+
+div#forgot_password_actual ul li button {
+    margin-left: 0;
+    width: 100%; 
+}
+/* End - Forgot Password Page */
+
+/* Start - Home Page - Base Template */
+div#home_header {
+    position: relative;
+    overflow: auto;
+    width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#home_header_1 {
+    width: 180px;
+    margin: 50px 0 0 120px;
+    float: left;
+}
+
+div#home_header_1 h1 a {
+    color: #333333;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+div#home_header_2 {
+    width: 220px;
+    margin-top: 50px;
+    margin-right: 93px;
+    float: right;
+}
+
+div#home_header_2 ul {
+}
+
+div#home_header_2 ul li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    padding: 1px 5px;
+    -webkit-border-radius: 99px;
+    -moz-border-radius: 99px;
+    -ms-border-radius: 99px;
+    -o-border-radius: 99px;
+    border-radius: 99px;
+    background: #EEEEEE;
+    border-bottom: 1px white solid;
+}
+
+div#home_header_2 ul li:last-child {
+    margin-right: 0;
+}
+
+div#home_header_2 ul li:hover {
+    background: #EEEEEE;
+    border-bottom: 1px white solid;
+}
+
+div#home_header_2 ul li a {
+    display: block;
+    color: #777777;
+    padding: 3px 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+div#home_header_2 ul li a:hover {
+    color: #555555;
+}
+
+div#home_header_2 ul li.currentLink a {
+    color: #555555;
+    text-decoration: underline;
+}
+
+div#home_menu_and_content_container {
+    width: 100%;
+    margin-top: 40px;
+    background: #ffffff;
+    border-top: 1px solid #D4D4D4;
+    border-bottom: 1px solid #D4D4D4;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05) inset, 0 0 9px rgba(0, 0, 0, 0.1);
+}
+
+div#home_menu_and_content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1130px;
+    overflow: auto;
+}
+
+div#home_menu {
+    width: 189px;
+    margin-left: 100px;
+    padding: 10px;
+    float: left;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+
+div#home_menu, div#home_content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div#home_menu ul {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 2px 5px;
+}
+
+div#home_menu ul ul {
+    margin-left: 10px;
+    display: none;
+}
+
+div#home_menu ul li {
+    color: #797874;
+    font-size: 16px;
+    line-height: 36px;
+    padding-left: 8px;
+}
+
+div#home_menu ul li.currentLink {
+    background: none repeat scroll 0 0 #ECF1EF;
+    background: none repeat scroll 0 0 #E0EEEE;
+    background: none repeat scroll 0 0 #E5E5E5;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+div#home_menu ul li:hover {
+    text-decoration: underline;
+}
+
+div#home_menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: #003399;
+    color: #00008B;
+    color: #36A9AE;
+}
+
+div#home_content {
+    width: 740px;
+    float: left;
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+    /*border-radius: 15px;*/
+    /*-webkit-border-radius: 15px;*/
+    /*-moz-border-radius: 15px;*/
+    /*-ms-border-radius: 15px;*/
+    /*-o-border-radius: 15px;*/
+    margin-left: 8px;
+}
+
+div#home_content div {
+    margin: 10px 10px;
+}
+
+div#content_one {
+    min-height: 300px;
+}
+/* End - Home Page - Base Template */
+
+/* Start - Home Page */
+div#content_one ul.base_ul_overview, div#content_one ul#home_overview, form#equal_split ul, form#unequal_split ul, form#record_payment_initial ul, form#record_payment ul, form#my_profile ul, form#change_password {
+    width: 440px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+div#content_one ul.base_ul_overview, div#content_one ul#home_overview {
+    width: 460px;
+}
+
+div#content_one ul.base_ul_overview li, div#content_one ul#home_overview li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+div#content_one ul.base_ul_overview li a, div#content_one ul#home_overview li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    color: #444444;
+}
+
+div#content_one ul.base_ul_overview li:hover, div#content_one ul#home_overview li:hover {
+    background-color: #ECF1EF;
+}
+
+div#content_one ul.base_ul_overview li:first-child, div#content_one ul#home_overview li:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+div#content_one ul.base_ul_overview li span, div#content_one ul#home_overview li span { 
+    display: inline-block;
+    color: #444444;
+}
+
+div#content_one ul#home_overview li span.home_name {
+    width: 210px;
+    padding-left: 10px;
+}
+
+div#content_one ul#home_overview li span.home_total {
+    width: 130px;
+}
+
+div#content_one ul#home_overview li span.home_total_flag {
+    width: 100px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #797874;
+    color: #999999;
+}
+
+div#content_one ul li span.green {
+    border-bottom: 3px solid green;
+}
+
+div#content_one ul li span.red {
+    border-bottom: 3px solid red;
+}
+
+div#content_one ul li span.blue {
+    border-bottom: 3px solid blue;
+}
+/* End - Home Page */
+
+/* Start - Home Details, Who I Owe and Who Owes Me Pages*/
+div#content_one p#home_details_header, div#content_one p.page_header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 30px;
+    color: #444444;
+}
+
+div#content_one ul#home_details, table.base_table {
+    width: 580px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+div#content_one ul#home_details {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+div#content_one ul#home_details li, table.base_table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+table.base_table thead tr {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+    border-top: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+table.base_table tbody tr:last-child {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+div#content_one ul#home_details li a, table.base_table tr a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+    color: #444444;
+}
+
+div#content_one ul#home_details li:hover, table.base_table tr:hover {
+    background-color: #ECF1EF;
+}
+
+div#content_one ul#home_details li:first-child, table.base_table tbody tr:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+div#content_one ul#home_details li span.home_details_date, table.base_table .date {
+    /*font-size: 14px;*/
+    font-weight: 400;
+    width: 120px;
+    padding-left: 10px;
+    display: inline-block;
+    color: #444444;
+}
+
+div#content_one ul#home_details li span.home_details_date {
+    width: 110px;
+}
+
+div#content_one ul#home_details li span.home_details_description, table.base_table .description {
+    width: 240px;
+    display: inline-block;
+    color: #444444;
+}
+
+div#content_one ul#home_details li span.home_details_amount, table.base_table .amount {
+    width: 130px;
+    display: inline-block;
+    color: #444444;
+}
+
+div#content_one ul#home_details li span.home_details_amount {
+    margin-left: 12px;
+    width: 110px;
+}
+
+div#content_one ul#home_details li span.home_details_flag {
+    width: 62px;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-block;
+    color: #797874;
+    color: #999999;
+}
+
+div#content_one ul#home_details ul#home_details_overall {
+    font-size: 17px;
+    font-weight: 500;
+    color: #444444;
+    border-top: 2px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+div#content_one ul#home_details ul#home_details_overall li {
+    display: inline-block;
+    border: none;
+}
+
+div#content_one ul#home_details ul#home_details_overall:hover, div#content_one ul#home_details ul#home_details_overall li:hover, div#content_one ul#home_details li.last:hover, div#content_one ul#home_details li#home_details_net:hover {
+    background-color: #FFFFFF;
+}
+
+ul#home_details_overall li:first-child {
+    width: 360px;
+}
+
+ul#home_details_overall li:first-child span {
+    display: inline-block;
+    padding-left: 120px;
+}
+
+ul#home_details_overall li:last-child span {
+    margin-left: 2px;
+}
+
+ul#home_details li.last {
+    margin-top: 20px;
+    border-bottom: none !important;
+}
+
+/*ul#home_details li.last label {*/
+    /*font-size: 17px;*/
+    /*font-weight: 600;*/
+    /*color: #333333;*/
+/*}*/
+
+/*ul#home_details button#settle_all_bills {*/
+    /*width: 385px;*/
+    /*margin-left: 10px;*/
+    /*display: inline;*/
+/*}*/
+/* End - Home Details, Who I Owe and Who Owes Me Pages*/
+
+/* Start - Specific Bill Page */
+div#content_one form ul.specific_bill {
+    width: 540px;
+    list-style-type: none;
+    margin-top: 20px;
+    margin-left: 60px;
+    padding-left: 0;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+div#content_one form ul.specific_bill li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+div#content_one form ul.specific_bill li:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+div#content_one form ul.specific_bill li:last-child {
+    /*border-bottom: 0;*/
+}
+
+div#content_one form ul.specific_bill li.last {
+    border: 0;
+}
+
+div#content_one ul.specific_bill ul li {
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 0 !important;
+}
+
+div#content_one form#specific_bill_detail span {
+    margin-left: 5px;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #E1A60A;
+}
+
+div#content_one form#specific_bill_detail span.own_bill_note {
+    color: #8B0000;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+div#content_one form#specific_bill_detail span.own_bill_description {
+    border: 0;
+    color: #8B0000;
+    background-color:#FEE0C6; 
+    padding: 3px;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+}
+
+div#content_one form#specific_bill_detail ul li label {
+    width: 120px;
+    padding-left: 10px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+div#content_one form#specific_bill_detail ul li ul {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+div#content_one form#specific_bill_detail ul li.last {
+    margin-top: 20px;
+}
+
+button#mark_bill_paid_one, button#delete_bill_one {
+    width: 262px;
+    float: left;
+    display: inline-block;
+}
+
+button#delete_bill_one {
+    float: right;
+}
+/* End - Specific Bill Page */
+
+/* Start - Who Owes Me & Who I Owe Page */
+table.base_table {
+    width: 650px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table.base_table th {
+    font-weight: 500;
+}
+
+table.base_table td.date, table.base_table td.name, table.base_table td.description, table.base_table td.amount, table.base_table td.status, table.base_table td.cleared {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+table.base_table .date {
+    width: 110px;
+    font-weight: 500;
+    padding-left: 20px;
+    font-size: 17px;
+}
+
+table.base_table .name {
+    width: 160px;
+    padding-left: 10px;
+    display: inline-block;
+    color: #444444;
+}
+
+table.base_table .description {
+    width: 220px;
+}
+
+table.base_table .amount {
+    width: 110px;
+}
+
+table.base_table thead tr:hover {
+    background-color: #FFFFFF;;
+}
+
+th.header {
+    background-image: url(../images/tablesorter/bg.gif);
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+th.headerSortUp {
+    background-image: url(../images/tablesorter/asc.gif); 
+} 
+
+th.headerSortDown {
+    background-image: url(../images/tablesorter/desc.gif); 
+} 
+
+th.date.header {
+    background-position: 53px 9.5px;
+}
+
+th.date.headerSortUp {
+    background-position: 53px 13.5px;
+}
+
+th.date.headerSortDown {
+    background-position: 53px 11px;
+}
+
+th.name.header {
+    background-position: 52px 9.5px;
+}
+
+th.name.headerSortUp {
+    background-position: 52px 13.5px;
+}
+
+th.name.headerSortDown {
+    background-position: 52px 11px;
+}
+
+th.description.header {
+    background-position: 86px 9.5px;
+}
+
+th.description.headerSortUp {
+    background-position: 86px 13.5px;
+}
+
+th.description.headerSortDown {
+    background-position: 86px 11px;
+}
+
+th.amount.header {
+    background-position: 58px 9.5px;
+}
+
+th.amount.headerSortUp {
+    background-position: 58px 13.5px;
+}
+
+th.amount.headerSortDown {
+    background-position: 58px 11px;
+}
+/* End - Who Owes Me & Who I Owe Page */
+
+/* Start - Transactions History Page */
+div#content_one ul#transaction_history_overview {
+    width: 460px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+div#content_one ul#transaction_history_overview li span.name {
+    width: 200px;
+    padding-left: 10px;
+}
+
+div#content_one ul#transaction_history_overview li span.total, div#content_one ul#transaction_history_overview li span.total span {
+    width: 115px;
+    text-align: right;
+    color: #999999;
+}
+
+div#content_one ul#transaction_history_overview li a {
+    padding: 5px 0;
+}
+
+div#content_one ul#transaction_history_overview li span.total span.highlight {
+    display: inline;
+    color: #444444;
+    border-bottom: 3px solid red;
+}
+
+table#transaction_history_table {
+    width: 700px;
+}
+
+table#transaction_history_table th {
+    font-size: 13px;
+}
+
+table#transaction_history_table td {
+    font-size: 12px;
+}
+
+table#transaction_history_table .name {
+    width: 110px;
+    padding-left: 0;
+}
+
+table#transaction_history_table .name.lender {
+    padding-left: 7px;
+}
+
+table#transaction_history_table .date {
+    width: 100px;
+    padding-left: 0;
+}
+
+table#transaction_history_table .description {
+    width: 210px;
+}
+
+table#transaction_history_table .amount {
+    width: 80px;
+}
+
+table#transaction_history_table .status {
+    width: 55px;
+}
+
+table#transaction_history_table .status span.red {
+    border-bottom: 3px solid red;
+}
+
+table#transaction_history_table .status span.green {
+    border-bottom: 3px solid green;
+}
+
+table#transaction_history_table .status span.blue {
+    border-bottom: 3px solid blue;
+}
+
+table#transaction_history_table th.lender.header {
+    background-position: 45px 9.5px;
+}
+
+table#transaction_history_table th.lender.headerSortUp {
+    background-position: 45px 13.5px;
+}
+
+table#transaction_history_table th.lender.headerSortDown {
+    background-position: 45px 11px;
+}
+
+table#transaction_history_table th.borrower.header {
+    background-position: 51px 9.5px;
+}
+
+table#transaction_history_table th.borrower.headerSortUp {
+    background-position: 51px 13.5px;
+}
+
+table#transaction_history_table th.borrower.headerSortDown {
+    background-position: 51px 11px;
+}
+
+table#transaction_history_table th.date.header {
+    background-position: 25px 9.5px;
+}
+
+table#transaction_history_table th.date.headerSortUp {
+    background-position: 25px 13.5px;
+}
+
+table#transaction_history_table th.date.headerSortDown {
+    background-position: 25px 11px;
+}
+
+table#transaction_history_table th.description.header {
+    background-position: 65px 9.5px;
+}
+
+table#transaction_history_table th.description.headerSortUp {
+    background-position: 65px 13.5px;
+}
+
+table#transaction_history_table th.description.headerSortDown {
+    background-position: 65px 11px;
+}
+
+table#transaction_history_table th.amount.header {
+    background-position: 44px 9.5px;
+}
+
+table#transaction_history_table th.amount.headerSortUp {
+    background-position: 44px 13.5px;
+}
+
+table#transaction_history_table th.amount.headerSortDown {
+    background-position: 44px 11px;
+}
+
+table#transaction_history_table th.status.header {
+    background-position: 35px 9.5px;
+}
+
+table#transaction_history_table th.status.headerSortUp {
+    background-position: 35px 13.5px;
+}
+
+table#transaction_history_table th.status.headerSortDown {
+    background-position: 35px 11px;
+}
+/* End - Transactions History Page */
+
+/* Start - Record Bill Option and Payment Initial Page */
+p#record_bill_option, p#settle_payment_option {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 60px;
+    /*margin-bottom: 10px;*/
+    color: rgba(0,0,0,0.8);
+}
+
+form#record_payment ul, form#equal_split ul, form#unequal_split ul {
+    /*margin-top: 10px !important;*/
+}
+
+/*p#record_bill_option span.selected_type {*/
+    /*width: 543px;*/
+    /*display: inline-block;*/
+    /*border-bottom: 1px solid #D4D4D4;*/
+    /*padding-bottom: 18px;*/
+/*}*/
+
+p#record_bill_option button {
+    display: inline-block;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+p#record_bill_option button.selected {
+    border-bottom: 3px solid #E1A60A;
+}
+
+p#record_bill_option button.unselected {
+    color: #999999;
+}
+
+p#record_bill_option button#record_bill_option_equal {
+    width: 120px;
+    margin-left: 7px;
+    margin-right: 3px;
+}
+
+p#record_bill_option button#record_bill_option_unequal {
+    width: 150px;
+}
+
+form#equal_split {
+    display: none;
+}
+
+form#unequal_split {
+    display: none;
+}
+
+p#settle_payment_option select {
+    font-size: 14px;
+    -webkit-appearance: menulist-button;
+    border: 1px solid #DDDDDD;
+    vertical-align: middle;
+    position: relative;
+    top: -2.5px;
+    left: 5px;
+}
+
+p#settle_payment_option span.ajax_loading {
+    position: relative;
+    top: -1.5px;
+    left: 10px;
+    display: none;
+}
+/* End - Record Bill Option and Payment Initial Page */
+
+/* Start - Record Bill, Equal Split, Un-Equal Split and Record Payment pages */
+form#equal_split ul, form#unequal_split ul, form#record_payment ul, form#my_profile ul, form#change_password ul {
+    font-weight: 400;
+    width: 580px;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+}
+
+form#equal_split ul, form#unequal_split ul {
+    width: 725px;
+}
+
+form#equal_split ul li, form#unequal_split ul li, form#record_payment ul li, form#my_profile ul li, form#change_password ul li {
+    margin-top: 10px;
+}
+
+form#equal_split ul li.last, form#unequal_split ul li.last, form#record_payment ul li.last, form#my_profile ul li.last, form#change_password ul li.last {
+    margin-top: 20px;
+}
+
+form#equal_split ul li label, form#unequal_split ul li label, form#record_payment ul li label, form#my_profile ul li label, form#change_password ul li label {
+    font-weight: 600;
+    width: 131px;
+    display: inline-block;
+}
+
+form#equal_split ul li span.date_format_small, form#unequal_split ul li span.date_format_small, form#record_payment ul li span.date_format_small {
+    font-size: 11px;
+    font-weight: 200;
+}
+   
+span.text_small {
+    font-size: 12px;
+    font-weight: 400;
+    border: 0 !important;
+}
+
+form#equal_split ul li.make_inline, form#unequal_split ul li.make_inline {
+    overflow: auto;
+    width: 100%; 
+}
+
+form#equal_split ul li.make_inline label, form#unequal_split ul li.make_inline label {
+    float: left;
+}
+
+form#equal_split ul li ul.people, form#equal_split ul li ul.add_remove_button {
+    float: left;
+    width: 430px;
+    font-size: 15px;
+    margin: 0;
+}
+
+form#equal_split ul li ul.people li {
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+form#equal_split ul li ul.people li:last-child {
+    margin-bottom: 0;
+}
+
+form#equal_split ul li ul li input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    padding: 0;
+    vertical-align: middle;
+    position: relative;
+    top: -1.5px;
+    cursor: pointer;
+}
+
+form#equal_split ul li.make_inline ul li label {
+    float: none;
+    width: 100%;
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+form#equal_split ul li.make_inline ul li span.me {
+    font-size: 12px;
+}
+
+input.dynamic_add_in {
+    width: 120px;
+    margin-right: 5px;
+    padding: 2px 6px;
+    font-size: 13px;
+}
+
+form#equal_split input.dynamic_add_in, form#equal_split input.dynamic_add_in.email_new {
+    width: 170px;
+}
+
+span.friend_checked_equal_split, span.friend_checked_unequal_split {
+    float: left;
+    font-size: 14px;
+    color: #8B0000;
+    background-color:#FEE0C6; 
+    margin-left: 4px;
+    padding: 5px 6px 4px;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+    visibility: hidden;
+}
+
+form#equal_split ul li ul.add_remove_button {
+    margin-left: 134px;
+}
+
+form#unequal_split ul li button.add_friend {
+    margin-left: 142px;
+}
+
+form#equal_split ul li ul.add_remove_button li button.add_friend, form#unequal_split ul li button.add_friend, ul.add_remove_button li button.add_friend {
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+    padding: 5px 20px ;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    cursor: pointer !important;
+    text-decoration: none;
+    box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.15);
+    background: #36a9ae;
+    background: -webkit-gradient(linear, left top, left bottom, from(#62cace), to(#2d8d91));
+    background: -moz-linear-gradient(top, #62cace, #2d8d91);
+    background: -o-linear-gradient(top, #62cace, #2d8d91);
+    border: 1px solid #2a8387;
+    transition: all 0.05s ease-in-out;
+    -webkit-transition: all 0.05s ease-in-out;
+    -moz-transition: all 0.05s ease-in-out;
+}
+
+form#equal_split ul li ul.add_remove_button li button.add_friend:hover, form#unequal_split ul li button.add_friend:hover, ul li button.add_friend:hover { 
+    color: white;
+    text-decoration: none;
+    box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+form#equal_split ul li ul.add_remove_button li button.add_friend:active, form#unequal_split ul li button.add_friend:active, ul li button.add_friend:active { 
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+input.remove_friend {
+    font-size: 20px;
+    height: 24px;
+    width: 20px;
+    border: 0;
+    border-radius: 0;
+    background-color: #FFFFFF; 
+    padding: 0;
+    cursor: pointer;
+}
+
+form#equal_split li.last button, form#unequal_split li.last button, form#record_payment li.last button, form#my_profile li.last button, form#change_password li.last button {
+    margin-left: 0;
+    width: 550px;
+}
+/* End - Record Bill Equal Split, Un-Equal Split and Record Payment pages */
+
+/* Start - Record Bill Un-Equal Split page */
+table#unequal_split_people_table {
+    margin-top: 5px;
+    width: 420px;
+    table-layout: fixed;
+    float: left;
+}
+
+table#unequal_split_people_table th {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0;
+    /*color: #797874;*/
+    color: rgba(0, 0, 0, 0.7);
+}
+
+table#unequal_split_people_table td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 5px 3px;
+}
+
+table#unequal_split_people_table th {
+    text-align: center;
+}
+
+table#unequal_split_people_table th.name {
+    width: 200px;
+}
+
+table#unequal_split_people_table th.number {
+    width: 100px;
+}
+
+table#unequal_split_people_table th.amount {
+    width: 90px;
+}
+
+table#unequal_split_people_table tbody select {
+    font-size: 13px;
+    height: 22px;
+    -webkit-appearance: menulist-button;
+    border: 1px solid #DDDDDD;
+}
+
+table#unequal_split_people_table tbody td.name select {
+    width: 180px;
+}
+
+table#unequal_split_people_table th.remove_placeholder {
+    width: 50px;
+}
+
+table#unequal_split_people_table td.name input {
+    width: 180px;
+    margin-bottom: 2px;
+}
+
+table#unequal_split_people_table td.amount input {
+    width: 66px;
+    padding: 2px 6px;
+}
+
+table#unequal_split_people_table td.remove_table_row {
+    text-align: left;
+    padding: 0;
+}
+/* End - Record Bill Un-Equal Split page */
+
+/* Start - Settle Payment page */
+form#record_payment ul {
+    width: 718px;
+}
+
+form#record_payment span#paid_to {
+    font-size: 16px;
+}
+
+form#record_payment select {
+    font-size: 14px;
+    -webkit-appearance: menulist-button;
+    border: 1px solid #DDDDDD;
+}
+
+form#record_payment ul li {
+    overflow: auto;
+}
+
+form#record_payment table {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    margin-left: 5px;
+    margin-top: 2px;
+    width: 435px;
+    display: inline-block;
+    float: left;
+}
+
+form#record_payment table#record_payment_table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+form#record_payment table#net_bill {
+    float: none;
+    margin: 0;
+    margin-left: 135px;
+}
+
+form#record_payment table td {
+    font-size: 12px;
+}
+
+table#net_bill tbody tr td.description, table#net_bill tbody tr td.amount {
+    font-weight: 600;
+}
+
+span.bills_checked {
+    float: right;
+    font-size: 14px;
+    color: #8B0000;
+    background-color:#FEE0C6; 
+    margin-top: 2px;
+    margin-right: 12px;
+    padding: 5px 6px 4px;
+    border-radius: 3px 3px 3px 3px;
+    text-align: center;
+    visibility: hidden;
+}
+
+li label#bills {
+    float: left;
+}
+
+table#record_payment_table th, table#record_payment_table td, table#net_bill td {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+}
+
+table#record_payment_table th {
+    font-weight: 600;
+}
+
+table#record_payment_table thead tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.15) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+table#net_bill tbody tr {
+    border-top: 3px solid rgba(0, 0, 0, 0.15) !important;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+table#record_payment_table tbody tr:hover {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+table#net_bill tbody tr:hover {
+    background-color: #FFFFFF;
+    cursor: default;
+}
+
+table#record_payment_table th.check_bill, table#record_payment_table td.check_bill, table#net_bill td.check_bill {
+    width: 30px;
+}
+
+table#record_payment_table th.date, table#record_payment_table td.date, table#net_bill td.date {
+    width: 85px;
+}
+
+table#record_payment_table th.description, table#record_payment_table td.description, table#net_bill td.description {
+    width: 160px;
+}
+
+table#record_payment_table th.amount, table#record_payment_table td.amount, table#net_bill td.amount {
+    width: 70px;
+}
+
+table#record_payment_table td.flag, table#net_bill td.flag {
+    width: 60px;
+    color: #999999;
+}
+
+table#record_payment_table td.amount.green span, table#net_bill td.amount.green span {
+    border-bottom: 2px solid green;
+}
+
+table#record_payment_table td.amount.red span, table#net_bill td.amount.red span {
+    border-bottom: 2px solid red;
+}
+
+table#record_payment_table td.amount.blue span, table#net_bill td.amount.blue span {
+    border-bottom: 2px solid blue;
+}
+    
+table#record_payment_table input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    padding: 0;
+    vertical-align: middle;
+    top: -1.5px;
+    position: relative;
+    cursor: pointer;
+}
+
+table#record_payment_table tr.highlight {
+    background-color: #ECF1EF !important;
+}
+
+table#record_payment_table th.date.header {
+    background-position: 22px 9.5px;
+}
+
+table#record_payment_table th.date.headerSortUp {
+    background-position: 22px 13.5px;
+}
+
+table#record_payment_table th.date.headerSortDown {
+    background-position: 22px 11px;
+}
+
+table#record_payment_table th.description.header {
+    background-position: 61px 9.5px;
+}
+
+table#record_payment_table th.description.headerSortUp {
+    background-position: 61px 13.5px;
+}
+
+table#record_payment_table th.description.headerSortDown {
+    background-position: 61px 11px;
+}
+
+table#record_payment_table th.amount.header {
+    background-position: 41px 9.5px;
+}
+
+table#record_payment_table th.amount.headerSortUp {
+    background-position: 41px 13.5px;
+}
+
+table#record_payment_table th.amount.headerSortDown {
+    background-position: 41px 11px;
+}
+
+table#record_payment_table th.flag.header {
+    background-position: 33px 9.5px;
+}
+
+table#record_payment_table th.flag.headerSortUp {
+    background-position: 33px 13.5px;
+}
+
+table#record_payment_table th.flag.headerSortDown {
+    background-position: 33px 11px;
+}
+/* End - Record Payment Page */
+
+/* Start - Record Payment - Success Page */
+table#payment_success_table {
+    width: 710px;
+}
+
+table#payment_success_table .date {
+    margin-left: 20px;
+    width: 100px;
+    padding-left: 0;
+}
+
+table#payment_success_table .description {
+    margin-left: 10px;
+    width: 270px;
+}
+
+table#payment_success_table .amount {
+    width: 100px;
+}
+
+table#payment_success_table .status {
+    width: 80px;
+    color: #444444;
+}
+
+table#payment_success_table td.status {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+table#payment_success_table .cleared {
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 100px;
+    color: #444444;
+}
+
+table#payment_success_table .amount span.red {
+    border-bottom: 3px solid red;
+}
+
+table#payment_success_table .amount span.green {
+    border-bottom: 3px solid green;
+}
+
+table#payment_success_table .cleared span.blue {
+    color: #1874CD;
+}
+
+table#payment_success_table th.date.header {
+    background-position: 32px 9.5px;
+}
+
+table#payment_success_table th.date.headerSortUp {
+    background-position: 32px 13.5px;
+}
+
+table#payment_success_table th.date.headerSortDown {
+    background-position: 32px 11px;
+}
+
+table#payment_success_table th.description.header {
+    background-position: 85px 9.5px;
+}
+
+table#payment_success_table th.description.headerSortUp {
+    background-position: 85px 13.5px;
+}
+
+table#payment_success_table th.description.headerSortDown {
+    background-position: 85px 11px;
+}
+
+table#payment_success_table th.amount.header {
+    background-position: 57px 9.5px;
+}
+
+table#payment_success_table th.amount.headerSortUp {
+    background-position: 57px 13.5px;
+}
+
+table#payment_success_table th.amount.headerSortDown {
+    background-position: 57px 11px;
+}
+
+table#payment_success_table th.status.header {
+    background-position: 46px 9.5px;
+}
+
+table#payment_success_table th.status.headerSortUp {
+    background-position: 46px 13.5px;
+}
+
+table#payment_success_table th.status.headerSortDown {
+    background-position: 46px 11px;
+}
+/* End - Record Payment - Succces Page */
+
+/* Start - My Profile Page */
+form#my_profile ul, form#change_password ul {
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 60px;
+    padding-left: 0;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+form#my_profile ul li, form#change_password ul li {
+    margin: 5px 0;
+}
+
+form#my_profile ul div.breaker, form#change_password ul div.breaker {
+    width: 435px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin: 0;
+    padding: 0;
+}
+
+form#my_profile ul li.last, form#change_password ul li.last {
+    border: 0;
+    margin-top: 20px;
+}
+
+form#my_profile ul li label, form#change_password ul li label {
+    width: 155px;
+    padding-left: 10px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+form#my_profile a {
+    text-decoration: underline;
+    color: #B1581E;
+}   
+
+form#my_profile a:hover {
+    text-decoration: underline;
+    color: #854517;
+}
+
+form#my_profile ul li input {
+    width: 260px;
+    padding: 1px;
+    font-size: 15px;
+}
+
+form#my_profile li.last button, form#change_password li.last button {
+    width: 435px;
+}
+
+form#my_profile button#edit {
+    width: 435px;
+}
+/* End - My Profile Page */
+
+/* Start - Change Password Page */
+form#change_password ul {
+    width: 715px;
+    margin-left: 0;
+}
+
+form#change_password ul li label {
+    width: 200px;
+}
+
+form#change_password ul li input {
+    width: 200px;
+}
+p.password.default_message {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 25px;
+}
+/* End - Change Password Page */
+
+/* Start - My Friends Page */
+div#content_one ul#my_friends {
+    width: 740px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+div#content_one ul#my_friends li {
+    padding: 5px 0;
+}
+
+div#content_one ul#my_friends li {
+    border: 0;
+}
+
+div#content_one ul#my_friends li span.name {
+    width: 160px;
+    padding: 0 6px;
+}
+
+div#content_one ul#my_friends li input.name_new {
+    width: 160px;
+    margin-right: 0;
+}
+
+div#content_one ul#my_friends li span.email {
+    width: 210px;
+    color: #999999;
+    font-size: 14px;
+    padding: 0 6px;
+}
+
+div#content_one ul#my_friends li input.email_new {
+    display: inline-block;
+    width: 206px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ul#my_friends button {
+    width: 50px;
+}
+
+div#content_one ul#my_friends li:hover {
+    background-color: #ffffff;
+}
+
+ul.my_friends.add_remove_button {
+    width: 150px;
+    margin: 15px 0 0 65px;
+}
+
+div#content_one ul#my_friends li {
+    /*border: 1px solid black;*/
+}
+
+ul#my_friends span.last.edit, ul#my_friends span.last.delete, ul#my_friends span.last_new.save, ul#my_friends span.last_new.cancel {
+    /*position: relative;*/
+    /*bottom: 4px;*/
+}
+
+ul#my_friends span.last button, ul#my_friends span.last_new button {
+    display: inline;
+    font-size: 12px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 12px;
+    padding: 3px;
+}
+
+ul#my_friends span.mock_border {
+    width: 400px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+ul#my_friends span.error_django {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 1px 5px;
+}
+
+p.my_friends.default_message {
+    font-weight: 400;
+    margin-left: 60px;
+}
+/* End - My Friends Page */

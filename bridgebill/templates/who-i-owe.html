@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Who I Owe{% endblock %}
+{% block content %}
+<div id="content_one">
+    {% if my_lenders %}
+    <p class="page_header">Details of Who I Owe</p>
+        <table class="base_table" id="who_i_owe_table">
+            <thead>
+                <tr>
+                    <th class="date">Date</th>
+                    <th class="name">Name</th>
+                    <th class="description">Description</th>
+                    <th class="amount">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for my_lender in my_lenders %}
+                    <tr>
+                        <td class="date"><a href="/bill/details/v/{{ my_lender.bill_overall_bill_id }}/">{{ my_lender.bill_date|date:"jS M Y" }}</a></td>
+                        <td class="name"><a href="/bill/details/v/{{ my_lender.bill_overall_bill_id }}/">{{ my_lender.lender_name }}</a></td>
+                        <td class="description"><a href="/bill/details/v/{{ my_lender.bill_overall_bill_id }}/">{{ my_lender.bill_description }}</a></td>
+                        <td class="amount"><a href="/bill/details/v/{{ my_lender.bill_overall_bill_id }}/">{{ my_lender.bill_currency|currency }} {{ my_lender.bill_individual_amount|intcomma }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="default_message">You don't owe anyone any money currently!</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% autoescape off %}Hi there
+
+Welcome to BridgeBill!
+
+BridgeBill helps you split bills with friends and keep track of who owes what. 
+
+If you need help with anything, reply to this email or drop me a note at arpitrai@bridgebill.com.
+
+Happy BridgeBilling!
+
+Cheers
+Arpit Rai, the BridgeBill dude (http://www.bridgebill.com)
+{% endautoescape %}

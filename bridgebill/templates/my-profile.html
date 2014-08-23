@@ -1,0 +1,97 @@
+{% extends "home.html" %}
+{% block title %}BridgeBill - My Profile{% endblock %}
+{% block content %}
+<div id="content_one">
+    <p class="page_header">My Profile</p>
+    <form id="my_profile" name="my_profile" action="" method="post">
+        {% csrf_token %}
+        <ul>
+            <div class="breaker"></div>
+            {% if userprofile_object.user.last_name %}
+            <li>
+                <label for="id_first_name">First Name </label>
+                {% if edit %}
+                    <input name="first_name" type="text" value="{{ userprofile_object.user.first_name }}" />
+                {% else %}
+                    <span class="form_description">{{ userprofile_object.user.first_name }}</span>
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            <li>
+                <label for="id_last_name">Last Name </label>
+                {% if edit %}
+                    <input name="last_name" type="text" value="{{ userprofile_object.user.last_name }}" />
+                {% else %}
+                    <span class="form_description">{{ userprofile_object.user.last_name }}</span>
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            {% else %}
+            <li>
+                <label for="id_first_name">Name </label>
+                {% if edit %}
+                    <input name="first_name" type="text" value="{{ userprofile_object.user.first_name }}" />
+                {% else %}
+                    <span class="form_description">{{ userprofile_object.user.first_name }}</span>
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            {% endif %}
+            <li>
+                <label for="id_currency">Default Currency </label>
+                {% if edit %}
+                    {{ userprofile_form.currency }}
+                {% else %}
+                    {% if userprofile_object.get_currency_display %}
+                        <span class="form_description">{{ userprofile_object.get_currency_display }}</span>
+                    {% else %}
+                        <span class="form_description">---------</span>
+                    {% endif %}
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            <li>
+                <label for="id_email">Email </label>
+                {% if edit %}
+                    <input name="email" type="text" value="{% if email %}{{ email }}{% else %}{{ userprofile_object.user.email }}{% endif %}" />
+                    {% if error.email_invalid %}
+                        <span class="error_django">{{ error.email_invalid }}</span>
+                    {% else %}
+                        {% if error.email_exists %}
+                            <span class="error_django">{{ error.email_exists }}</span>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <span class="form_description">{{ userprofile_object.user.email }}</span>
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            {% if request.user.has_usable_password %}
+            <li>
+                <label for="id_password">Password </label>
+                <a href="change-password/" class="form_description">Change Password</a>
+            </li>
+            {% endif %}
+            <div class="breaker"></div>
+            <li>
+                <label for="id_my_friends">My Friends </label>
+                {% if my_friends_count %}
+                    <a href="/my-profile/my-friends/" class="form_description">{{ my_friends_count }} Friends</a>
+                {% else %}
+                    <a href="/my-profile/my-friends/" class="form_description">0 Friends</a>
+                {% endif %}
+            </li>
+            <div class="breaker"></div>
+            <li class="last">
+                {% if edit %}
+                    <button id="save" type="submit">Save</button>
+                    <input type="hidden" name="edit_or_save" value="save" />
+                {% else %}
+                    <button id="edit" type="submit">Edit</button>
+                    <input type="hidden" name="edit_or_save" value="edit" />
+                {% endif %}
+            </li>
+        </ul>
+    </form>
+</div>
+{% endblock %}

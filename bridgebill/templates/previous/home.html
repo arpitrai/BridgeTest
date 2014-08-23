@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% block title %}BridgeBill - Home{% endblock %}
+{% block body %}
+<div id="home">
+    <div id="home_header">
+        <div id="home_header_1">
+            <h1><a href="/home/"><strong class="logo">BridgeBill</strong></a></h1>
+        </div>
+        <div id="home_header_2">
+            <ul>
+                <li><a href="/my-profile/">My Profile</a></li>
+                <li><a href="/logout/">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="home_menu_and_content">
+        <div id="home_menu">
+            <ul>
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/who-owes-me/">Who Owes Me</a></li>
+                <li><a href="/who-i-owe/">Who I Owe</a></li>
+                <li><a href="/record-bill/">Record Bill</a></li>
+                <li><a href="/settle-payment/">Settle Payment</a></li>
+                <li><a href="/transaction-history/">My Transaction History</a></li>
+            </ul>
+        </div>
+        <div id="home_content">
+            {% block content %}
+            <div id="content_one">
+                {% if persons_list %}
+                    <ul class="base_ul_overview" id="home_overview">
+                        {% for person in persons_list %}
+                        <li>
+                            <a href="details/{{ person.slug }}">
+                            <span class="home_name">{{ person.name }}</span>
+                            <span class="home_total"><span class="{% if person.total_flag == "+ve" %}green{% else %}{% if person.total_flag == "-ve" %}red{% else %}{% if person.total_flag == "0" %}blue{% endif %}{% endif %}{% endif %}">S$ {{ person.total|intcomma }}</span></span>
+                            <span class="home_total_flag">{% if person.total_flag == "+ve" %}Owes Me{% else %}{% if person.total_flag == "-ve" %}I Owe{% else %}{% if person.total_flag == "0" %}Settled{% endif %}{% endif %}{% endif %}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="default_message">You don't have any dues or loans currently! To create a bill, please click <a href="/record-bill"/>here</a>.</p>                
+                {% endif %}
+            </div>
+             {% endblock %}
+        </div>
+    </div>
+    <div id="home_push">
+    </div>
+</div>
+<div id="home_footer">
+    <ul class="footer_links"> 
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/feedback/">Feedback</a></li>
+        <!--<li><a href="/contact-us/">Contact Us</a></li>-->
+    </ul> 
+</div>
+{% endblock %}

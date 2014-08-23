@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Who Owes Me{% endblock %}
+{% block content %}
+<div id="content_one">
+    {% if my_borrowers %}
+    <p class="page_header" >Details of Who Owes Me</p>
+        <table class="base_table" id="who_owes_me_table">
+            <thead>
+                <tr>
+                    <th class="date">Date</th>
+                    <th class="name">Name</th>
+                    <th class="description">Description</th>
+                    <th class="amount">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for my_borrower in my_borrowers %}
+                    <tr>
+                        <td class="date"><a href="/bill/details/v/{{ my_borrower.bill.overall_bill_id }}/">{{ my_borrower.bill.date|date:"jS M Y" }}</a></td>
+                        <td class="name"><a href="/bill/details/v/{{ my_borrower.bill.overall_bill_id }}/">{{ my_borrower.borrower.friend_name }}</a></td>
+                        <td class="description"><a href="/bill/details/v/{{ my_borrower.bill.overall_bill_id }}/">{{ my_borrower.bill.description }}</a></td>
+                        <td class="amount"><a href="/bill/details/v/{{ my_borrower.bill.overall_bill_id }}/">{{ my_borrower.bill.currency|currency }} {{ my_borrower.individual_amount|intcomma }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="default_message">You don't have any dues currently! To create a bill, please click <a href="/record-bill"/>here</a>.</p>                
+    {% endif %}
+</div>
+{% endblock %}

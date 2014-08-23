@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - My Friends{% endblock %}
+{% block content %}
+<div id="content_one">
+<p class="page_header">My Friends</p>
+{% if my_friends %}
+    <ul class="base_ul_overview" id="my_friends">
+        <li style="display: none;"></li>
+        {% for friend in my_friends %}
+        <li>
+            <span class="mock_border">
+                <span class="name">{{ friend.friend_name }}</span>
+                <span class="email">{{ friend.friend_email }}</span>
+            </span>
+            <span style="display: none;" class="last edit"><button class="edit_friend" value="{{ friend.userfriend_id }}">Edit</button></span>
+            <span style="display: none;" class="last delete"><button class="delete_friend" value="{{ friend.userfriend_id }}">Delete</button></span>
+            <span class="ajax_loading"><img src="{{ STATIC_URL }}images/ajax-loader.gif" alt="Processing" /></span>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="my_friends add_remove_button">
+        <li>
+            <button class="add_friend">Add Friend</button> 
+        </li>
+    </ul>
+{% else %}
+    <p class="my_friends default_message">None yet. Click the button below to add your contacts.</p>
+    <ul class="base_ul_overview" id="my_friends">
+        <li style="display: none;"></li>
+    </ul>
+    <ul class="my_friends add_remove_button">
+        <li>
+            <button class="add_friend">Add Friend</button> 
+        </li>
+    </ul>
+{% endif %}
+</div>
+{% endblock %}

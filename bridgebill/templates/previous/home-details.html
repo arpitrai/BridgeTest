@@ -1,0 +1,46 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% block title %}BridgeBill - Home - Details{% endblock %}
+{% block content %}
+<div id="content_one">
+<p id="home_details_header">Transactions with {{ person_name }}</p>
+{% if bill_list %}
+    <form id="home_details" name="home_details" action="" method="post">
+        {% csrf_token %}
+        <ul id="home_details">
+            {% for bill in bill_list %}
+            <li>
+                <a href="/bill/details/v/{{ bill.slug }}">
+                <span class="home_details_date">{{ bill.date|date:"jS M Y" }}</span>
+                <span class="home_details_description">{{ bill.description }}</span>
+                <span class="home_details_amount"><span class="{% if bill.flag == "+ve" %}green{% else %}{% if bill.flag == "-ve" %}red{% endif %}{% endif %}">{{ bill.currency }} {{ bill.individual_amount|intcomma }}</span></span>
+                <span class="home_details_flag">{% if bill.flag == "+ve" %}Owes Me{% else %}{% if bill.flag == "-ve" %}I Owe{% endif %}{% endif %}</span>
+                </a>
+                <input type="hidden" name="billdetails_list" value="{{ bill.detail_id }}" />
+            </li>
+            {% endfor %}
+            <li>
+                <ul id="home_details_overall">
+                    <li><span>Net</span></li>
+                    <li class="overall_amount">
+                        <span class="home_details_amount"><span class="{% if net_flag == "+ve" %}green{% else %}{% if net_flag == "-ve" %}red{% else %}{% if net_flag == "zero" %}blue{% endif %}{% endif %}{% endif %}">S$ {{ net_amount|intcomma }}</span></span>
+                    </li>
+                    <li>
+                        <span class="home_details_flag">{% if net_flag == "+ve" %}Owes Me{% else %}{% if net_flag == "-ve" %}I Owe{% else %}{% if net_flag == "zero" %}Even{% endif %}{% endif %}{% endif %}</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="last">
+                <!--<label for="settle_all_bills">Settled Total Amount?</label>-->
+                <button id="settle_all_bills" name="settle_all_bills" type="submit">Settled Net Amount? Mark all Bills as Settled</button>
+                <!--<button id="settle_all_bills" name="settle_all_bills" type="submit">Mark all Bills as Paid</button>-->
+            </li>
+        </ul>
+        <input type="hidden" name="person_name" value="{{ person_name }}" />
+        <input type="hidden" name="person_email" value="{{ person_email }}" />
+    </form>
+{% else %}
+    <p class="default_message">You have cleared all your transactions with {{ person_name }}.</p>
+{% endif %}
+</div>
+{% endblock %}

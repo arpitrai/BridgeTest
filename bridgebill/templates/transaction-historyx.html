@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% load humanize %}
+{% block title %}BridgeBill - My Transaction History{% endblock %}
+{% block content %}
+<div id="content_one">
+{% if persons_list %}
+    <p class="page_header">My Transaction History</p>
+    <ul class="base_ul_overview" id="transaction_history_overview">
+        {% for person in persons_list %}
+        <li>
+            <a href="details/{{ person.slug }}">
+                <span class="name">{{ person.name }}</span>
+                <span class="total totalx">{{ person.total_cleared|intcomma }} Cleared</span>
+                <span class="total"><span class="{% if person.total_pending != 0 %}highlight{% endif %}">{{ person.total_pending|intcomma }} Pending</span></span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="default_message">You don't have any transactions on BridgeBill.</p>                
+{% endif %}
+</div>
+{% endblock %}

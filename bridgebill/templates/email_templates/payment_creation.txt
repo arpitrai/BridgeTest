@@ -1,0 +1,22 @@
+{% load currency_symbol_email %} {% load humanize %}{% autoescape off %}
+Hi there
+
+{% for key,value in total_amount_cleared.items %}{{ userprofile_object.user.first_name }}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %}{% if value > 0 %} has paid a total of {{ key|currency_email }} {{ value|floatformat:2|intcomma }} to you{% else %}{% if value < 0 %} has received a total of {{ key|currency_email }} {{ value|currency_amount|floatformat:2|intcomma }} from you{% else %}{% if value == 0 %} has only marked all bills as settled and has not physically paid anything since the net of all dues between the two of you amounts to 0{% endif %}{% endif %}{% endif %}{% if not forloop.last %}. {% endif %}{% endfor %}. The following bill(s) are now marked as settled:
+{% if list_of_bills_cleared %}{% for bill in list_of_bills_cleared %}
+{% if forloop.first and forloop.last %}{% else %}{{ forloop.counter }}) {% endif %}URL: http://www.bridgebill.com/bill/details/v/{{ bill.overall_bill_id }}/
+Description: {{ bill.description }}
+Date: {{ bill.date|date:"jS M Y" }}
+Total Bill Amount: {{ bill.currency|currency_email }} {{ bill.total_amount|floatformat:2|intcomma }}
+Your Share of the Bill: {{ bill.currency|currency_email }} {{ bill.amount|floatformat:2|intcomma }}
+{% endfor %}{% endif %}
+{% if remarks %}Remarks: {{ remarks }}
+Lastly, your Net Outstanding with {{ userprofile_object.user.first_name}}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %} (including previous uncleared bills): {% if net_outstanding %}{% for key,value in net_outstanding.items %}{{ key|currency_email }} {{ value.0|floatformat:2|intcomma }} ({% if value.1 == '+ve' %}You Owe {{ userprofile_object.user.first_name }}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %}{% else %}{% if value.1 == '-ve' %}{{ userprofile_object.user.first_name }} {% if userprofile_object.user.last_name %}{{ userprofile_object.user.last_name }} {% endif %}Owes You{% else %}{% if value.1 == 'zero' %}Even Steven! Although there are pending bills, both of you owe each other the same amount overall{% endif %}{% endif %}{% endif %}){% if not forloop.last %}, {% endif %}{% endfor %}{% else %}Even Steven! All pending bills have been cleared!{% endif %}
+
+Cheers
+BridgeBill (http://www.bridgebill.com)
+{% else %}Lastly, your Net Outstanding with {{ userprofile_object.user.first_name}}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %} (including previous uncleared bills): {% if net_outstanding %}{% for key,value in net_outstanding.items %}{{ key|currency_email }} {{ value.0|floatformat:2|intcomma }} ({% if value.1 == '+ve' %}You Owe {{ userprofile_object.user.first_name }}{% if userprofile_object.user.last_name %} {{ userprofile_object.user.last_name }}{% endif %}{% else %}{% if value.1 == '-ve' %}{{ userprofile_object.user.first_name }} {% if userprofile_object.user.last_name %}{{ userprofile_object.user.last_name }} {% endif %}Owes You{% else %}{% if value.1 == 'zero' %}Even Steven! Although there are pending bills, both of you owe each other the same amount overall{% endif %}{% endif %}{% endif %}){% if not forloop.last %}, {% endif %}{% endfor %}{% else %}Even Steven! All pending bills have been cleared!{% endif %}
+
+Cheers
+BridgeBill (http://www.bridgebill.com)
+{% endif %}
+{% endautoescape %}

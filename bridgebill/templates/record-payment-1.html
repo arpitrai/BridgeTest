@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+{% block title %}BridgeBill - Record Payment{% endblock %}
+{% block content %}
+<div id="content_one">
+    <form name="record_payment" id="record_payment" action="/record-payment-full/" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="id_date">Date </label>
+                {{ payment_form.date }}
+            </li>
+            <li>
+                <label for="id_paid_to">Settle With </label>
+                <span id="paid_to">{{ person_name }}</span>
+            </li>
+            <li>
+                <label id="bills" for="id_description">Bills </label>
+                <table class="base_table" id="record_payment_table">
+                    <thead>
+                        <tr>
+                            <th class="check_bill"><input type="checkbox" /></th>
+                            <th class="date">Date</th>
+                            <th class="description">Description</th>
+                            <th class="amount">Amount</th>
+                            <th class="flag">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bill in lender_bill_details %}
+                        <tr>
+                            <td class="check_bill"><input type="checkbox" name="billdetail_id" value="{{ bill.billdetail_id }}" /></td>
+                            <td class="date">{{ bill.bill.date|date:"jS M Y" }}</td>
+                            <td class="description">{{ bill.bill.description }}</td>
+                            <td class="amount">S$ {{ bill.individual_amount }}</td>
+                            <td class="flag red"><span>I Owe</span></td>
+                        </tr>
+                        {% endfor %}
+                        {% for bill in borrower_bill_details %}
+                        <tr>
+                            <td class="check_bill"><input type="checkbox" name="billdetail_id" value="{{ bill.billdetail_id }}" /></td>
+                            <td class="date">{{ bill.bill.date|date:"jS M Y" }}</td>
+                            <td class="description">{{ bill.bill.description }}</td>
+                            <td class="amount">S$ {{ bill.individual_amount }}</td>
+                            <td class="flag green"><span>Owes Me</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <label for="id_remarks">Remarks </label>
+                {{ payment_form.remarks }}
+            </li>
+            <li class="last">
+                <button id="save" type="submit">Save</button>
+            </li>
+        </ul>
+        <input type="hidden" name="lender" id="id_lender" value="{{ lender.user.email }}" />
+        <input type="hidden" name="description" id="id_description" value="Value" />
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "home.html" %}
+{% block title %}BridgeBill - Record Payment{% endblock %}
+{% block content %}
+<div id="content_one">
+    <form name="record_payment" id="record_payment" action="/record-payment-full/" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label for="id_date">Date </label>
+                {{ payment_form.date }}
+            </li>
+            <li>
+                <label for="id_paid_to">Settle With </label>
+                <span id="paid_to">{{ lender.user.first_name }} {{ lender.user.last_name }}</span>
+            </li>
+            <li>
+                <label for="id_description">Bills </label>
+                <select name="overall_bill_id">
+                    {% for bill_detail in bill_details %}
+                        <option value="{{ bill_detail.bill.overall_bill_id }}">{{ bill_detail.bill.description }} (SGD {{ bill_detail.individual_amount }})</option>
+                    {% endfor %}
+                    {% if bill_details|length > 1 %}
+                        <option value='000'>All Bills (SGD {{ all_amount }})</option>
+                    {% endif %}
+                </select>
+            </li>
+            <li>
+                <input type="hidden" name="amount" id="id_amount" value="10" />
+            </li>
+            <li>
+                <label for="id_remarks">Remarks </label>
+                {{ payment_form.remarks }}
+            </li>
+            <li class="last">
+                <button id="save" type="submit">Save</button>
+            </li>
+        </ul>
+        <input type="hidden" name="lender" id="id_lender" value="{{ lender.user.email }}" />
+        <input type="hidden" name="description" id="id_description" value="Value" />
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% load humanize %}
+{% load currency_symbol %}
+{% if not blank_element %}
+<form name="record_payment" id="record_payment" action="/settle-payment/complete/" method="post">
+    {% csrf_token %}
+    <ul>
+        <li>
+            <label for="id_date">Date <span class="date_format_small">(dd/mm/yyyy)</span></label>
+            {{ payment_form.date }}
+        </li>
+        <!--<li>
+            <label for="id_paid_to">Settle With </label>
+            <span id="paid_to">{{ person_name }}</span>
+        </li>-->
+        <li>
+            <label id="bills" for="id_description">Bills </label>
+            <table class="base_table" id="record_payment_table">
+                <thead>
+                    <tr>
+                        <th class="check_bill"><input type="checkbox" /></th>
+                        <th class="date">Date</th>
+                        <th class="description">Description</th>
+                        <th class="amount">Amount</th>
+                        <th class="flag">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in lender_bill_details %}
+                    <tr>
+                        <td class="check_bill"><input type="checkbox" name="billdetail_id" value="{{ bill.billdetail_id }}" /></td>
+                        <td class="date">{{ bill.bill.date|date:"jS M Y" }}</td>
+                        <td class="description">{{ bill.bill.description }}</td>
+                        <td class="amount red"><span>{{ bill.bill.currency|currency }} {{ bill.individual_amount|intcomma }}</span></td>
+                        <td class="flag">I Owe</td>
+                    </tr>
+                    {% endfor %}
+                    {% for bill in borrower_bill_details %}
+                    <tr>
+                        <td class="check_bill"><input type="checkbox" name="billdetail_id" value="{{ bill.billdetail_id }}" /></td>
+                        <td class="date">{{ bill.bill.date|date:"jS M Y" }}</td>
+                        <td class="description">{{ bill.bill.description }}</td>
+                        <td class="amount green"><span>{{ bill.bill.currency|currency }} {{ bill.individual_amount|intcomma }}</span></td>
+                        <td class="flag">Owes Me</td>
+                    </tr>
+                    {% endfor %}
+                    <span class="bills_checked">Please select a bill!</span>
+                    <table class="base_table" id="net_bill">
+                        <tbody>
+                            {% for key, value in overall.items %}
+                            <tr class="net">
+                                <td class="check_bill"></td>
+                                <td class="date"></td>
+                                <td class="description">Net</td>
+                                <td class="amount {% if value.1 == "+ve" %}green{% else %}{% if value.1 == "-ve" %}red{% else %}{% if value.1 == "zero" %}blue{% endif %}{% endif %}{% endif %}"><span>{{ key|currency }} {{ value.0|intcomma }}</span></td>
+                                <td class="flag">{% if value.1 == "+ve" %}Owes Me{% else %}{% if value.1 == "-ve" %}I Owe{% else %}{% if value.1 == "zero" %}Even{% endif %}{% endif %}{% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </tbody>
+            </table>
+        </li>
+        <li>
+            <label for="id_remarks">Remarks <span class="date_format_small">(optional)</span></label>
+            {{ payment_form.remarks }}
+        </li>
+        <li class="last">
+            <button id="save" type="submit">Mark as Settled</button>
+        </li>
+    </ul>
+    <input type="hidden" name="person" id="id_person" value="{{ person_email }}" />
+    <input type="hidden" name="person_name" id="id_person_name" value="{{ person_name }}" />
+    <input type="hidden" name="description" id="id_description" value="Value" />
+</form>
+{% endif %}

@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+{% block title %}BridgeBill - Record Bill{% endblock %}
+{% block content %}
+<div id="content_one">
+    <form id="record_bill_option" name="record_bill_option" action="" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label>Equal Split<input type="radio" checked="checked" name="record_bill_option" value="equal_split" /></label>
+            </li>
+            <li>
+                <label>Un-Equal Split<input type="radio" name="record_bill_option" value="unequal_split" /></label>
+            </li>
+            <li class="last">
+                <button id="save" type="submit">Proceed</button>
+            </li>
+        </ul>
+    </form>
+</div>
+{% endblock %}

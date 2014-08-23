@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% load currency_symbol %}
+{% block title %}BridgeBill - Home{% endblock %}
+{% block body %}
+<div id="home">
+    <div id="home_header">
+        <div id="home_header_1">
+            <h1><a href="/home/"><strong class="logo">BridgeBill</strong></a></h1>
+        </div>
+        <div id="home_header_2">
+            <ul>
+                <li><a href="/my-profile/">My Profile</a></li>
+                <li><a href="/logout/">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="home_menu_and_content_container">
+        <div id="home_menu_and_content">
+            <div id="home_menu">
+                <ul>
+                    <li><a href="/home/">Home</a></li>
+                    <li><a href="/who-owes-me/">Who Owes Me</a></li>
+                    <li><a href="/who-i-owe/">Who I Owe</a></li>
+                    <li><a href="/record-bill/">Record Bill</a></li>
+                    <li><a href="/settle-payment/">Settle Payment</a></li>
+                    <li><a href="/transaction-history/">My Transaction History</a></li>
+                </ul>
+            </div>
+            <div id="home_content">
+                {% block content %}
+                <div id="content_one">
+                    {% if persons_list %}
+                        <ul class="base_ul_overview" id="home_overview">
+                            {% for person in persons_list %}
+                                {% for key, value in person.overall.items %}
+                                    <li>
+                                        <a href="details/{{ person.slug }}">
+                                        <span class="home_name">{{ person.name }}</span>
+                                        <span class="home_total"><span class="{% if value.1 == "+ve" %}green{% else %}{% if value.1 == "-ve" %}red{% else %}{% if value.1 == "0" %}blue{% endif %}{% endif %}{% endif %}">{{ key|currency }} {{ value.0|intcomma }}</span></span>
+                                        <span class="home_total_flag">{% if value.1 == "+ve" %}Owes Me{% else %}{% if value.1 == "-ve" %}I Owe{% else %}{% if value.1 == "0" %}Even{% endif %}{% endif %}{% endif %}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="default_message">You don't have any dues or loans currently! To create a bill, please click <a href="/record-bill"/>here</a>.</p>                
+                    {% endif %}
+                </div>
+                 {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div id="home_push">
+    </div>
+</div>
+<div id="home_footer">
+    <ul class="footer_links"> 
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/feedback/">Feedback</a></li>
+        <!--<li><a href="/contact-us/">Contact Us</a></li>-->
+    </ul> 
+</div>
+{% endblock %}
