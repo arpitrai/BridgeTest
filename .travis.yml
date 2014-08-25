@@ -18,4 +18,4 @@ before_script:
     - python manage.py syncdb --migrate --noinput
 
 script: 
-    - python manage.py test --liveserver=localhost:8081
+    - python manage.py test --liveserver=localhost:8000
