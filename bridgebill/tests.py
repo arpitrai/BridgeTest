@@ -33,7 +33,7 @@ class SeleniumTestCase(LiveServerTestCase):
         self.assertEqual('Home',driver.find_element_by_link_text('Home').text)
         #driver.find_element_by_link_text('Logout').click()
 
-   def test_b_user_login_and_friend_creation(self):
+    def test_b_user_login_and_friend_creation(self):
         driver = self.driver
         driver.get(self.live_server_url + '/')
         driver.maximize_window()
