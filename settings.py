@@ -57,6 +57,7 @@ if socket.gethostname() != 'Arpits-MacBook-Air-2.local':
 			'PASSWORD': os.environ.get('PG_PASSWORD'),                  # Not used with sqlite3.
 			'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
 		}
+	}
 	
 # End - Heroku Database Setting
 
