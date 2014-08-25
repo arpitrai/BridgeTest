@@ -33,8 +33,8 @@ DATABASES = {
 if socket.gethostname() != 'Arpits-MacBook-Air-2.local':
 
 	# For Heroku
-    #import dj_database_url
-    #DATABASES['default'] =  dj_database_url.config()
+	import dj_database_url
+	DATABASES['default'] =  dj_database_url.config()
 
 	# For Travis
 	#DATABASES = {
@@ -49,15 +49,15 @@ if socket.gethostname() != 'Arpits-MacBook-Air-2.local':
 	#}
 
 	# For CodeShip 
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-			'NAME': 'test',                      # Or path to database file if using sqlite3.
-			'USER': os.environ.get('PG_USER'),                      # Not used with sqlite3.
-			'PASSWORD': os.environ.get('PG_PASSWORD'),                  # Not used with sqlite3.
-			'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
-		}
-	}
+   # DATABASES = {
+		#'default': {
+			#'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+			#'NAME': 'test',                      # Or path to database file if using sqlite3.
+			#'USER': os.environ.get('PG_USER'),                      # Not used with sqlite3.
+			#'PASSWORD': os.environ.get('PG_PASSWORD'),                  # Not used with sqlite3.
+			#'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
+		#}
+	#}
 	
 # End - Heroku Database Setting
 
