@@ -169,7 +169,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'bridgebill',
     'social_auth',
-    'storages',
+    #'storages',
     'gunicorn',
     'django.contrib.humanize',
     'mailer',

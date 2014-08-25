@@ -12,10 +12,9 @@ from django.test import LiveServerTestCase
 class SeleniumTestCase(LiveServerTestCase):
 
     def setUp(self):
+        # To use localhost/Travis/Jenkins infra for testing
         #self.driver = webdriver.Firefox()
         #self.driver.implicitly_wait(10)
-       # #self.base_url = 'http://localhost:8000'
-
 
         # To use BrowserStack for testing
         desired_cap = { 'os': 'OS X', 'os_version': 'Mavericks', 'browser': 'Firefox', 'browser_version': '28.0' }
@@ -26,7 +25,6 @@ class SeleniumTestCase(LiveServerTestCase):
                 command_executor='http://arpitrai2:zeyo5rm1GvwobaMJy7s3@hub.browserstack.com:80/wd/hub',
               desired_capabilities=desired_cap)
         self.driver.implicitly_wait(10)
-
 
     def test_a_user_signup(self):
         driver = self.driver
