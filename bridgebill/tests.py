@@ -12,9 +12,21 @@ from django.test import LiveServerTestCase
 class SeleniumTestCase(LiveServerTestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        #self.driver = webdriver.Firefox()
+        #self.driver.implicitly_wait(10)
+       # #self.base_url = 'http://localhost:8000'
+
+
+        # To use BrowserStack for testing
+        desired_cap = { 'os': 'OS X', 'os_version': 'Mavericks', 'browser': 'Firefox', 'browser_version': '28.0' }
+        desired_cap['browserstack.local'] = True
+        desired_cap['build'] = 'Ver 1.2'
+        desired_cap['project'] = 'Record Bill'
+        self.driver = webdriver.Remote(
+                command_executor='http://arpitrai2:zeyo5rm1GvwobaMJy7s3@hub.browserstack.com:80/wd/hub',
+              desired_capabilities=desired_cap)
         self.driver.implicitly_wait(10)
-        #self.base_url = 'http://localhost:8000'
+
 
     def test_a_user_signup(self):
         driver = self.driver
@@ -33,35 +45,35 @@ class SeleniumTestCase(LiveServerTestCase):
         self.assertEqual('Home',driver.find_element_by_link_text('Home').text)
         #driver.find_element_by_link_text('Logout').click()
 
-    def test_b_user_login_and_friend_creation(self):
-        driver = self.driver
-        driver.get(self.live_server_url + '/')
-        driver.maximize_window()
-        driver.find_element_by_link_text('Don\'t have an account? Create account').click()
-        driver.find_element_by_id('id_firstname').clear()
-        driver.find_element_by_id('id_firstname').send_keys('Arpit Rai')
-        driver.find_element_by_id('id_username').clear()
-        driver.find_element_by_id('id_username').send_keys('arpitrai@browserstack.com')
-        driver.find_element_by_id('id_password1').clear()
-        driver.find_element_by_id('id_password1').send_keys('arpitrai')
-        driver.find_element_by_id('id_password2').clear()
-        driver.find_element_by_id('id_password2').send_keys('arpitrai')
-        driver.find_element_by_id('save').click()
+    #def test_b_user_login_and_friend_creation(self):
+        #driver = self.driver
+        #driver.get(self.live_server_url + '/')
+        #driver.maximize_window()
+        #driver.find_element_by_link_text('Don\'t have an account? Create account').click()
+        #driver.find_element_by_id('id_firstname').clear()
+        #driver.find_element_by_id('id_firstname').send_keys('Arpit Rai')
         #driver.find_element_by_id('id_username').clear()
         #driver.find_element_by_id('id_username').send_keys('arpitrai@browserstack.com')
-        #driver.find_element_by_id('id_password').clear()
-        #driver.find_element_by_id('id_password').send_keys('arpitrai')
-        #driver.find_element_by_id('submit').click()
-        #self.assertEqual('Home',driver.find_element_by_link_text('Home').text)
-        driver.find_element_by_link_text('My Profile').click()
-        driver.find_element_by_link_text('0 Friends').click()
-        driver.find_element_by_class_name('add_friend').click()
-        driver.find_element_by_id('id_name_0').clear()
-        driver.find_element_by_id('id_name_0').send_keys('Arpit Rai @Gmail')
-        driver.find_element_by_id('id_email_0').clear()
-        driver.find_element_by_id('id_email_0').send_keys('arpitrai@gmail.com')
-        driver.find_element_by_class_name('save_friend_2').click()
-        driver.find_element_by_link_text('Logout').click()
+        #driver.find_element_by_id('id_password1').clear()
+        #driver.find_element_by_id('id_password1').send_keys('arpitrai')
+        #driver.find_element_by_id('id_password2').clear()
+        #driver.find_element_by_id('id_password2').send_keys('arpitrai')
+        #driver.find_element_by_id('save').click()
+        ##driver.find_element_by_id('id_username').clear()
+        ##driver.find_element_by_id('id_username').send_keys('arpitrai@browserstack.com')
+        ##driver.find_element_by_id('id_password').clear()
+        ##driver.find_element_by_id('id_password').send_keys('arpitrai')
+        ##driver.find_element_by_id('submit').click()
+        ##self.assertEqual('Home',driver.find_element_by_link_text('Home').text)
+        #driver.find_element_by_link_text('My Profile').click()
+        #driver.find_element_by_link_text('0 Friends').click()
+        #driver.find_element_by_class_name('add_friend').click()
+        #driver.find_element_by_id('id_name_0').clear()
+        #driver.find_element_by_id('id_name_0').send_keys('Arpit Rai @Gmail')
+        #driver.find_element_by_id('id_email_0').clear()
+        #driver.find_element_by_id('id_email_0').send_keys('arpitrai@gmail.com')
+        #driver.find_element_by_class_name('save_friend_2').click()
+        #driver.find_element_by_link_text('Logout').click()
 
     #def test_d_bill_creation(self):
         #driver = self.driver
