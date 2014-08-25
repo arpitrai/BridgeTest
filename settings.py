@@ -1,3 +1,4 @@
+# Testing
 # Django settings for bridgebill project.
 import os.path
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
