@@ -3,6 +3,13 @@ language: python
 python:
     - "2.7"
 
+env:
+    global:
+        - SELENIUM_HOST=hub.browserstack.com
+        - SELENIUM_PORT=80
+        - secure: "PcVAVdrUj1z7fztYklzExbkxCkwEgdKaaSt4eQNNuxdBvj8MwDAp7JvKasqAALBLJgcthj+jt+BU2l3LABPZyZPkl6A6FstoXvmK0fUAPr2k9InuiFX6UgybNKvhIQOyF++9bw0kCTZlkGn3KSw0vLZAx10/+XCb8mu7ghwylrI="
+        - secure: "IO5ls6xcCpbgxEJFpKJhh5WT1FxwZOiwdhXs2OMElPCDAoMrQcooClvlSG6MWAY344F9p6jS3JFy0m8AZWw9IuJr5HeS36o5HS1Zf1+A/Awe8BDkyfHZTORZPU6VucFfLmZxgDXSFAmKxTaXUPhPQGXGbXuvT8KdkbqT43eA2HI="
+
 before_install:
     - "export DISPLAY=:99.0"
     - "sh -e /etc/init.d/xvfb start"
@@ -18,4 +25,4 @@ before_script:
     - python manage.py syncdb --migrate --noinput
 
 script: 
-    - python manage.py test --liveserver=localhost:8000
+    - python manage.py test --liveserver=localhost:8081
